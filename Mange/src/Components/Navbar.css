@@ -1,0 +1,42 @@
+.Navbar {
+  background-color: #ffffff; /* Navbar background color */
+  padding: 15px 0; /* Navbar padding */
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; /* Gap between nav links */
+  font-weight: 500;
+  font-size: large;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black; /* Default color for nav links */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+
+}
+
+.nav-link:hover,
+.nav-link.Active {
+  color: #17a2b8; /* Color for active and hover states */
+
+}
+
+/* Additional styling for navbar brand/logo */
+.Logo {
+  align-items: center;
+ 
+}
+
+.Logo-Text {
+  margin-bottom: 0; /* Remove bottom margin for logo text */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-btn {
+  border-radius: 20px; /* Button border radius */
+  margin-left: 150px;
+}
