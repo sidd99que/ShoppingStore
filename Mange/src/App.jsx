@@ -1,41 +1,39 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import Service from './Components/Service';
-import About from './Components/About';
-import Testimontail from './Components/Testimontail';
-import Product from './Components/Product';
 import Services from './Components/Service';
+import About from './Components/About';
+import Product from './Components/Product';
+import Testimonial from './Components/Testimontail';
 import Section from './Components/Section';
+import ProductList from './Components/Product';
+import { Provider } from 'react-redux';
+import store from './store/store'
+
+
 
 function App() {
   return (
-    <div className="App">
+     <Provider store={store}>
+      <div className="App">
+        <Navbar />
+        
+  
+        
+        
+          <Home />
+          <Services />
+          <About />
+          <ProductList />
+       <  Testimonial />
+    
+        
+        <Section />
       
-      <Navbar/>
- 
-   
+      </div>
+      </Provider>
 
-
-      
-     <Home/>
-     <Services/>
-     <About/>
-     <Product/>
-     <Testimontail/>  
-     <Section/>
-
- 
-
-     {/* <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/Service' element={<Services/>} />
-          <Route path='/About' element={<About />}/>
-          <Route path='/product' element={ <Product/>} />
-          <Route path='/testimonial' element={<Testimontail/>}/>
-        </Routes>    */}
-    </div>
   );
 }
 

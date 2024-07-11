@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "websiteusingapi",
+    "staging": "websiteusingapi"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

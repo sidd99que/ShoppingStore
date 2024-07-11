@@ -1,11 +1,28 @@
-import React from 'react'
+import React from 'react';
 
-function FAQ() {
+import Navbar from './Components/Navbar';
+import Home from './Components/Home';
+import Services from './Components/Service';
+import About from './Components/About';
+import Product from './Components/Product';
+import Testimonial from './Components/Testimontail';
+import Section from './Components/Section';
+
+function App() {
   return (
-    <div>
-       <h1>FAQ</h1>
-    </div>
-  )
+  
+      <div className="App">
+        <Navbar />
+        <Home />
+        <Services />
+        <About />
+        <Product />
+        <Testimonial />
+
+        <Section />
+      </div>
+ 
+  );
 }
 
-export default FAQ
+export default App;

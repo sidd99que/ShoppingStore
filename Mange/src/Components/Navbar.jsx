@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import { PiRocketThin } from "react-icons/pi";
 import { AiOutlineBars } from "react-icons/ai";
-import { Navbar, Container, Button , Nav} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar, Container, Button, Nav } from 'react-bootstrap';
+import { FaShoppingCart, FaHeart, FaUser } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
-// const NavbarStyle = ({ isActive }) => {
-//   return {
-//     fontWeight: isActive ? 'bold' : 'normal',
-//     color: isActive ? '#17a2b8' : 'black',
-//   };
-// };
-
-function CustomNavbar() {
+const CustomNavbar = () => {
   const [activeLink, setActiveLink] = useState('Home');
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartCount = cartItems.length;
 
   return (
     <Navbar expand="lg" className="Navbar">
@@ -31,10 +27,10 @@ function CustomNavbar() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-center">
           <Nav className="nav-links">
-          <a
-               href="#"
+            <a
+              href="#"
               onClick={() => setActiveLink('Home')}
-              className={`nav-link${activeLink === 'Services' ? ' Active' : ''}`}
+              className={`nav-link${activeLink === 'Home' ? ' active' : ''}`}
               style={{ color: activeLink === 'Home' ? '#17a2b8' : 'black', textDecoration: 'none' }}
             >
               Home
@@ -42,7 +38,7 @@ function CustomNavbar() {
             <a
               href="#Service"
               onClick={() => setActiveLink('Services')}
-              className={`nav-link${activeLink === 'Services' ? ' Active' : ''}`}
+              className={`nav-link${activeLink === 'Services' ? ' active' : ''}`}
               style={{ color: activeLink === 'Services' ? '#17a2b8' : 'black', textDecoration: 'none' }}
             >
               Services
@@ -50,38 +46,49 @@ function CustomNavbar() {
             <a
               href="#About"
               onClick={() => setActiveLink('About')}
-              className={`nav-link${activeLink === 'About' ? ' Active' : ''}`}
+              className={`nav-link${activeLink === 'About' ? ' active' : ''}`}
               style={{ color: activeLink === 'About' ? '#17a2b8' : 'black', textDecoration: 'none' }}
             >
               About
             </a>
             <a
-              href="#Product"
-              onClick={() => setActiveLink('Product')}
-              className={`nav-link${activeLink === 'Product' ? ' Active' : ''}`}
-              style={{ color: activeLink === 'Product' ? '#17a2b8' : 'black', textDecoration: 'none' }}
+              href="#ProductList"
+              onClick={() => setActiveLink('ProductList')}
+              className={`nav-link${activeLink === 'ProductList' ? ' active' : ''}`}
+              style={{ color: activeLink === 'ProductList' ? '#17a2b8' : 'black', textDecoration: 'none' }}
             >
-            Product
+              Product
             </a>
             <a
               href="#Testimontail"
               onClick={() => setActiveLink('Testimontail')}
-              className={`nav-link${activeLink === 'Testimontail' ? ' Active' : ''}`}
+              className={`nav-link${activeLink === 'Testimontail' ? ' active' : ''}`}
               style={{ color: activeLink === 'Testimontail' ? '#17a2b8' : 'black', textDecoration: 'none' }}
             >
-           Testimontail
+              Testimontail
             </a>
           </Nav>
-       
-        <Button className="btn btn-info nav-btn fw-bold text-white" href="/contact">
-          Sign in
-        </Button>
+          <Nav className="ms-auto">
+            <Nav.Link href="/wishlist" className="d-flex align-items-center">
+              <FaHeart size={20} className="me-2" />
+              Wishlist
+            </Nav.Link>
+            <Nav.Link href="/profile" className="d-flex align-items-center">
+              <FaUser size={20} className="me-2" />
+              Profile
+            </Nav.Link>
+            <Nav.Link href="/cart" className="d-flex align-items-center">
+              <FaShoppingCart size={20} className="me-2" />
+              {cartCount > 0 && <span className="badge bg-danger">{cartCount}</span>}
+            </Nav.Link>
+            <Button className="btn btn-info nav-btn fw-bold text-white" href="/contact">
+              SignIn
+            </Button>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default CustomNavbar;
-
-
